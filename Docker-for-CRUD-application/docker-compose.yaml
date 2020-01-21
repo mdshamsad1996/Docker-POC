@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  my-flask-app:
+    container_name: my-flask-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      -  overlay
+    ports:
+      - "8081:5000"
+    restart: always
+
+  student-mysql:
+    container_name: mysql-container
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    image: mysql-image
+    ports:
+      - "3306:3306"
+    networks:
+      - overlay
+    restart: always
+networks:
+  overlay:
+
