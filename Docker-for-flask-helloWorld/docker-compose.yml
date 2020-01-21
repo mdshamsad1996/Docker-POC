@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  myapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: myapp-docker-image
+    container_name: myapp-docker-container
+    ports:
+      - 8081: 5000ls
+      
+
